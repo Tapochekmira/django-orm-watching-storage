@@ -43,3 +43,9 @@ def get_duration(visit):
         delta_in_seconds = int((now_time - entry_time).total_seconds())
     return delta_in_seconds
 
+
+def format_duration(duration):
+    ready_to_output = f'{duration // 3600}:{duration % 3600 // 60}:{duration % 60}'
+    return ready_to_output
+
+
