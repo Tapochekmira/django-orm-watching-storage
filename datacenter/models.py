@@ -37,7 +37,7 @@ def get_duration(visit):
     entry_time = visit.entered_at
     if visit.leaved_at:
         duration = visit.leaved_at - entry_time
-        delta_in_seconds = int(duration.total_seconds())
+        delta_in_seconds = duration.total_seconds()
     else:
         now_time = make_aware(datetime.now())
         delta_in_seconds = int((now_time - entry_time).total_seconds())
@@ -52,6 +52,4 @@ def format_duration(duration):
 def is_visit_long(visit, minutes=60):
     duration_in_second = get_duration(visit)
     second = minutes * 60
-    if duration_in_second > second:
-        return True
-    return False
+    return duration_in_second > second
