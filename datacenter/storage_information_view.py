@@ -8,7 +8,6 @@ from datacenter.models import (
 
 
 def storage_information_view(request):
-    # Программируем здесь
     visits = Visit.objects.filter(leaved_at=None)
     non_closed_visits = []
     for visit in visits:
