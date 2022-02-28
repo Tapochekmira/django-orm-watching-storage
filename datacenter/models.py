@@ -37,7 +37,7 @@ def get_duration(visit):
     entry_time = visit.entered_at
     if visit.leaved_at:
         duration = visit.leaved_at - entry_time
-        delta_in_seconds = int(duration.total_seconds())
+        delta_in_seconds = duration.total_seconds()
     else:
         now_time = make_aware(datetime.now())
         delta_in_seconds = int((now_time - entry_time).total_seconds())
