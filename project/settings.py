@@ -1,13 +1,23 @@
 import os
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
+db_engine = os.getenv('ENGINE')
+db_host = os.getenv('HOST')
+port = os.getenv('PORT')
+user_name = os.getenv('NAME')
+user_type = os.getenv('USER')
+user_password = os.getenv('PASSWORD')
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': '',
-        'PORT': '',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
+        'ENGINE': db_engine,
+        'HOST': db_host,
+        'PORT': port,
+        'NAME': user_name,
+        'USER': user_type,
+        'PASSWORD': user_password,
     }
 }
 
@@ -21,7 +31,6 @@ ROOT_URLCONF = 'project.urls'
 
 ALLOWED_HOSTS = ['*']
 
-
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES = [
     {
@@ -30,7 +39,6 @@ TEMPLATES = [
         'APP_DIRS': True,
     },
 ]
-
 
 USE_L10N = True
 
